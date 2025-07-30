@@ -4,7 +4,7 @@ import 'package:flutter_smart_course/src/pages/recomended_page.dart';
 import 'package:flutter_smart_course/src/theme/color/light_color.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({required Key key}) : super(key: key);
 
   Widget _header(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -227,10 +227,10 @@ class HomePage extends StatelessWidget {
 
   Widget _card(BuildContext context,
       {Color primary = Colors.redAccent,
-      String imgPath,
+      required String imgPath,
       String chipText1 = '',
       String chipText2 = '',
-      Widget backWidget,
+      required Widget backWidget,
       Color chipColor = LightColor.orange,
       bool isPrimaryCard = false}) {
     final width = MediaQuery.of(context).size.width;
@@ -392,7 +392,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _decorationContainerD(Color primary, double top, double left,
-      {Color secondary, Color secondaryAccent}) {
+      {required Color secondary, required Color secondaryAccent}) {
     return Stack(
       children: <Widget>[
         Positioned(
@@ -424,7 +424,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _decorationContainerE(Color primary, double top, double left,
-      {Color secondary}) {
+      {required Color secondary}) {
     return Stack(
       children: <Widget>[
         Positioned(
@@ -514,7 +514,7 @@ class HomePage extends StatelessWidget {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => RecomendedPage(),
+              builder: (context) => RecomendedPage(key: UniqueKey()),
             ),
           );
         },

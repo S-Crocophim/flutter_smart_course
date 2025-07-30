@@ -6,7 +6,7 @@ import 'package:flutter_smart_course/src/theme/color/light_color.dart';
 import 'package:flutter_smart_course/src/theme/theme.dart';
 
 class RecomendedPage extends StatelessWidget {
-  const RecomendedPage({Key key}) : super(key: key);
+  const RecomendedPage({required Key key}) : super(key: key);
 
   Widget _header(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -151,7 +151,7 @@ class RecomendedPage extends StatelessWidget {
   }
 
   Widget _card(BuildContext context,
-      {Color primaryColor = Colors.redAccent, Widget backWidget}) {
+      {Color primaryColor = Colors.redAccent, required Widget backWidget}) {
     return Container(
       height: 190,
       width: MediaQuery.of(context).size.width * .34,
@@ -171,7 +171,7 @@ class RecomendedPage extends StatelessWidget {
   }
 
   Widget _courceInfo(BuildContext context, CourseModel model, Widget decoration,
-      {Color background}) {
+      {required Color background}) {
     return Container(
         height: 170,
         width: MediaQuery.of(context).size.width - 20,
@@ -380,7 +380,7 @@ class RecomendedPage extends StatelessWidget {
         ],
         onTap: (index) {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => HomePage()));
+              context, MaterialPageRoute(builder: (context) => HomePage(key: UniqueKey())));
         },
       ),
       body: SingleChildScrollView(

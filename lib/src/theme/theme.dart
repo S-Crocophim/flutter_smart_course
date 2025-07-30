@@ -5,30 +5,24 @@ class AppTheme {
   const AppTheme();
   static ThemeData lightTheme = ThemeData.light().copyWith(
     // primarySwatch: Colors.blue,
-    backgroundColor: LightColor.background,
     scaffoldBackgroundColor: LightColor.background,
     primaryColor: LightColor.purple,
     primaryColorDark: LightColor.Darker,
     primaryColorLight: LightColor.brighter,
-    cardTheme: CardTheme(color: LightColor.background),
+    cardTheme: CardThemeData(color: LightColor.background),
     // textTheme: TextTheme(display1: TextStyle(color: LightColor.black)),
     iconTheme: IconThemeData(color: LightColor.lightblack),
-    bottomAppBarColor: LightColor.background,
-    dividerColor: LightColor.lightGrey,
-    colorScheme: ColorScheme(
+    dividerColor: LightColor.lightGrey, colorScheme: ColorScheme(
         primary: LightColor.purple,
-        primaryVariant: LightColor.purple,
         secondary: LightColor.lightBlue,
-        secondaryVariant: LightColor.darkBlue,
         surface: LightColor.background,
-        background: LightColor.background,
         error: Colors.red,
         onPrimary: LightColor.Darker,
         onSecondary: LightColor.background,
         onSurface: LightColor.Darker,
         onBackground: LightColor.titleTextColor,
         onError: LightColor.titleTextColor,
-        brightness: Brightness.dark),
+        brightness: Brightness.dark).copyWith(background: LightColor.background), bottomAppBarTheme: BottomAppBarTheme(color: LightColor.background),
   );
 
   static TextStyle titleStyle =

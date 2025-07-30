@@ -7,12 +7,12 @@ class CourseModel {
   String tag2;
 
   CourseModel(
-      {this.name,
-      this.description,
-      this.noOfCource,
-      this.university,
-      this.tag1,
-      this.tag2});
+      {required this.name,
+      required this.description,
+      required this.noOfCource,
+      required this.university,
+      required this.tag1,
+      required this.tag2});
 }
 
 class CourseList {
