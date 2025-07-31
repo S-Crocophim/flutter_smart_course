@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_smart_course/app/config/app_color.dart';
 import 'package:flutter_smart_course/common/widgets/decorative_backgrounds.dart';
+
 import '../providers/course_providers.dart';
 import '../widgets/course_list_item.dart';
 
@@ -33,7 +34,14 @@ class RecommendedPage extends ConsumerWidget {
                     final model = courses[index];
                     return CourseListItem(
                       model: model,
-                      decoration: index % 2 == 0 ? const DecorationA() : const DecorationB(),
+                      
+                      // =============> PERBAIKAN DI SINI <=============
+                      // Kita berikan argumen yang diperlukan ke DecorationA
+                      decoration: index % 2 == 0 
+                        ? const DecorationA(primary: Colors.redAccent, top: -110, left: -85)
+                        : const DecorationB(),
+                      // ===============================================
+
                       backgroundColor: index % 2 == 0 ? AppColor.seeBlue : AppColor.darkOrange,
                     )
                     .animate()
@@ -51,6 +59,7 @@ class RecommendedPage extends ConsumerWidget {
   }
 }
 
+// Class _Header dan _CategoryChips di bawah ini tidak perlu diubah.
 class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

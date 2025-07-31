@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_smart_course/features/home/presentation/widgets/course_preview_card.dart'; 
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_smart_course/app/config/app_color.dart';
 
+// Kita import kartu yang sudah kita recode
+import 'course_preview_card.dart'; 
+
+// Widget ini adalah satu baris horizontal berisi beberapa kartu
 class FeaturedCoursesRow extends StatelessWidget {
   final String title;
+  // Kita tambahkan parameter data agar setiap baris bisa berbeda
+  final List<Map<String, dynamic>> courseData;
   
-  FeaturedCoursesRow({Key? key, required this.title}) : super(key: key);
+  const FeaturedCoursesRow({Key? key, required this.title, required this.courseData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,31 +28,24 @@ class FeaturedCoursesRow extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 260,
-          child: ListView(
+          height: 230, // Memberikan tinggi yang cukup untuk kartu dan marginnya
+          child: ListView.builder( // Menggunakan ListView.builder lebih efisien
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            children: const [
-              CoursePreviewCard(
-                title: 'Find the right degree for you',
-                courseCount: '8 Courses',
-                imageUrl: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop',
-                chipColor: AppColor.orange,
-              ),
-              CoursePreviewCard(
-                title: 'Become a data scientist',
-                courseCount: '12 Courses',
-                imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop',
-                chipColor: AppColor.seeBlue,
-              ),
-               CoursePreviewCard(
-                title: 'Become a digital marketer',
-                courseCount: '10 Courses',
-                imageUrl: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=2070&auto=format&fit=crop',
-                chipColor: AppColor.purple,
-              ),
-            ],
-          ).animate().slideX(begin: 0.5, end: 0, duration: 600.ms, curve: Curves.easeOut),
+            itemCount: courseData.length,
+            itemBuilder: (context, index) {
+              final course = courseData[index];
+              return CoursePreviewCard(
+                  primaryColor: course['primaryColor'],
+                  backWidget: course['backWidget'],
+                  chipColor: course['chipColor'],
+                  title: course['title'],
+                  courseCount: course['courseCount'],
+                  isPrimaryCard: course['isPrimaryCard'],
+                  imgPath: course['imgPath']
+              );
+            },
+          ),
         )
       ],
     );
