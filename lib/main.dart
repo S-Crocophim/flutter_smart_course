@@ -1,18 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_smart_course/app/navigation/app_router.dart';
+import 'package:flutter_smart_course/app/config/app_theme.dart';
+import 'package:flutter_smart_course/common/models/course_model.dart';
 
-import 'src/pages/home_page.dart';
-import 'src/theme/theme.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  await Hive.initFlutter();
+  if (!Hive.isAdapterRegistered(0)) {
+    Hive.registerAdapter(CourseModelAdapter());
+  }
 
-void main() => runApp(MyApp());
-
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
+}
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.lightTheme,
-      home: HomePage(key: UniqueKey()),
+    return MaterialApp.router(
+      title: 'Smart Course',
+      theme: AppTheme.theme,
       debugShowCheckedModeBanner: false,
+      routerConfig: goRouterProvider,
     );
   }
 }
