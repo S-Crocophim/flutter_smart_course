@@ -4,10 +4,8 @@ import 'package:flutter_smart_course/app/config/app_color.dart';
 // Kita import kartu yang sudah kita recode
 import 'course_preview_card.dart'; 
 
-// Widget ini adalah satu baris horizontal berisi beberapa kartu
 class FeaturedCoursesRow extends StatelessWidget {
   final String title;
-  // Kita tambahkan parameter data agar setiap baris bisa berbeda
   final List<Map<String, dynamic>> courseData;
   
   const FeaturedCoursesRow({Key? key, required this.title, required this.courseData}) : super(key: key);
@@ -28,8 +26,8 @@ class FeaturedCoursesRow extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 230, // Memberikan tinggi yang cukup untuk kartu dan marginnya
-          child: ListView.builder( // Menggunakan ListView.builder lebih efisien
+          height: 230,
+          child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 10),
             itemCount: courseData.length,

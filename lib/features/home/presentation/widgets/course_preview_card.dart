@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_smart_course/app/config/app_color.dart';
 
-// Kelas utama, kita ubah agar sesuai dengan desain yang berwarna.
 class CoursePreviewCard extends StatelessWidget {
   final Color primaryColor;
   final Color chipColor;
@@ -31,7 +30,7 @@ class CoursePreviewCard extends StatelessWidget {
       width: width * .38,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       decoration: BoxDecoration(
-          color: primaryColor, // Latar belakang utama dari kartu
+          color: primaryColor,
           borderRadius: const BorderRadius.all(Radius.circular(20)),
           boxShadow: <BoxShadow>[
             BoxShadow(
@@ -43,13 +42,11 @@ class CoursePreviewCard extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         child: Stack(
           children: <Widget>[
-            // ===> INI TAMBAHAN PENTING <===
-            // Memberikan background solid di bawah dekorasi
             Container(color: primaryColor), 
             backWidget,
             Positioned(
-              top: 15, // sedikit disesuaikan
-              left: 15, // sedikit disesuaikan
+              top: 15,
+              left: 15,
               child: CircleAvatar(
                 radius: 20,
                 backgroundColor: Colors.white, 
@@ -75,7 +72,6 @@ class CoursePreviewCard extends StatelessWidget {
   }
 }
 
-// Widget internal untuk menampilkan judul dan chip jumlah kursus.
 class _CardInfo extends StatelessWidget {
   final String title;
   final String courses;
@@ -96,12 +92,11 @@ class _CardInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      // Membuat column hanya setinggi kontennya agar tidak mendorong keluar batas
       mainAxisSize: MainAxisSize.min, 
       children: <Widget>[
         Text(
           title,
-          maxLines: 2, // Mencegah teks terlalu panjang
+          maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontSize: 14,
@@ -116,7 +111,6 @@ class _CardInfo extends StatelessWidget {
   }
 }
 
-// Widget internal untuk chip (misal: "8 Courses").
 class _Chip extends StatelessWidget {
   final String text;
   final Color color;

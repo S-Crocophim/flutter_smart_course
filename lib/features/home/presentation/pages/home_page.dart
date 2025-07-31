@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-// Widget _HomeHeader sama persis, tidak perlu diubah
+
 class _HomeHeader extends StatelessWidget {
   const _HomeHeader({Key? key}) : super(key: key);
   @override

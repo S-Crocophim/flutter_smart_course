@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_course/app/config/app_color.dart';
 
-// Clipper (TIDAK BERUBAH)
 class HalfCircleClipper extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) => Rect.fromLTWH(0.0, 0.0, size.width, size.height / 2);
   @override
   bool shouldReclip(CustomClipper<Rect> oldClipper) => true;
 }
-
-// === DEKORASI A ===
 class DecorationA extends StatelessWidget {
   const DecorationA({Key? key, required this.primary, required this.top, required this.left}) : super(key: key);
   final Color primary;
@@ -27,8 +24,6 @@ class DecorationA extends StatelessWidget {
     );
   }
 }
-
-// === DEKORASI B ===
 class DecorationB extends StatelessWidget {
   const DecorationB({Key? key}) : super(key: key);
   @override
@@ -42,7 +37,6 @@ class DecorationB extends StatelessWidget {
   }
 }
 
-// === DEKORASI C ===
 class DecorationC extends StatelessWidget {
   const DecorationC({Key? key}) : super(key: key);
   @override
@@ -57,7 +51,6 @@ class DecorationC extends StatelessWidget {
   }
 }
 
-// === DEKORASI D ===
 class DecorationD extends StatelessWidget {
   const DecorationD({Key? key}) : super(key: key);
   @override

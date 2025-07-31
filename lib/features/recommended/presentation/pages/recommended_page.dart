@@ -34,13 +34,9 @@ class RecommendedPage extends ConsumerWidget {
                     final model = courses[index];
                     return CourseListItem(
                       model: model,
-                      
-                      // =============> PERBAIKAN DI SINI <=============
-                      // Kita berikan argumen yang diperlukan ke DecorationA
                       decoration: index % 2 == 0 
                         ? const DecorationA(primary: Colors.redAccent, top: -110, left: -85)
                         : const DecorationB(),
-                      // ===============================================
 
                       backgroundColor: index % 2 == 0 ? AppColor.seeBlue : AppColor.darkOrange,
                     )
@@ -59,7 +55,6 @@ class RecommendedPage extends ConsumerWidget {
   }
 }
 
-// Class _Header dan _CategoryChips di bawah ini tidak perlu diubah.
 class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
