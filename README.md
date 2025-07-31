@@ -1,40 +1,155 @@
-## flutter_smart_course ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fthealphamerc) [![GitHub stars](https://img.shields.io/github/stars/Thealphamerc/flutter_smart_course?style=social)](https://github.com/login?return_to=%2FTheAlphamerc%flutter_smart_course) ![GitHub forks](https://img.shields.io/github/forks/TheAlphamerc/flutter_smart_course?style=social) ![GitHub last commit](https://img.shields.io/github/last-commit/Thealphamerc/flutter_smart_course) ![Dart CI](https://github.com/TheAlphamerc/flutter_smart_course/workflows/Dart%20CI/badge.svg) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/Thealphamerc/flutter_smart_course) 
+# Smart Course - Flutter Modern Refactor
 
-Smart course app is built in flutter. App design is based on [Smart Course](https://dribbble.com/shots/10090738-SmartCourse) designed by [Nugraha Jati Utama](https://dribbble.com/nugrahajatiutama)
+A project dedicated to refactoring the legacy "Smart Course" Flutter application into a modern, well-structured, and scalable app. This project implements best practices in software architecture, state management, and navigation.
 
+- **Project by:** Iqbal Maulana (20220801571)
+- **Refactor Year:** 2025
 
-<img src="https://cdn.dribbble.com/users/792073/screenshots/10090738/media/d3428df173d81d3722d3f16bfcd0ccc9.png"  /> 
+<br>
 
-## Screenshots
+---
 
- Android HomePage              |  Android Recommend Page 
-:-------------------------:|:-------------------------:
-![](https://github.com/TheAlphamerc/flutter_smart_course/blob/master/screenshots/screenshot_1.jpg?raw=true)|![](https://github.com/TheAlphamerc/flutter_smart_course/blob/master/screenshots/screenshot_2.jpg?raw=true)
+<details>
+<summary>🇮🇩 Versi Bahasa Indonesia (Klik untuk Membuka)</summary>
 
-iOS HomePage              |  iOS Recommend Page 
-:-------------------------:|:-------------------------:
-![](https://github.com/TheAlphamerc/flutter_smart_course/blob/master/screenshots/screenshot_ios_1.png?raw=true)|![](https://github.com/TheAlphamerc/flutter_smart_course/blob/master/screenshots/screenshot_ios_2.png?raw=true)
+## 📖 Deskripsi Proyek
 
-## Pull Requests
+Aplikasi Smart Course versi asli merupakan contoh aplikasi yang dibangun menggunakan versi awal ekosistem Flutter. Seiring berjalannya waktu, banyak pola dan pustaka (library) yang digunakan menjadi usang.
 
-I welcome and encourage all pull requests. It usually will take me within 24-48 hours to respond to any issue or request.
+Tujuan utama dari proyek refactor ini adalah:
+1.  **Modernisasi Infrastruktur:** Meng-upgrade seluruh basis kode ke versi Dart terbaru dengan dukungan penuh **Null Safety**.
+2.  **Penerapan Arsitektur Solid:** Merombak struktur proyek dari yang monolitik menjadi arsitektur **Feature-First**, di mana setiap fitur terisolasi sebagai modul mandiri.
+3.  **Implementasi State Management Modern:** Mengganti state management implisit dengan **Riverpod** untuk pengelolaan state yang lebih terstruktur, dapat diuji (testable), dan terprediksi.
+4.  **Peningkatan Pengalaman Pengguna (UX):** Memanfaatkan pustaka modern untuk navigasi, animasi, dan pemuatan data yang lebih efisien.
 
-## Created & Maintained By
+## ✨ Fitur Utama
 
-[Sonu Sharma](https://github.com/TheAlphamerc) ([Twitter](https://www.twitter.com/TheAlphamerc)) ([Youtube](https://www.youtube.com/user/sonusharma045sonu/))
-([Insta](https://www.instagram.com/_sonu_sharma__))  ![Twitter Follow](https://img.shields.io/twitter/follow/thealphamerc?style=social)
+-   **Halaman Utama (Home):** Menampilkan daftar kursus unggulan (*Featured*) dan populer dalam format kartu yang dinamis.
+-   **Halaman Rekomendasi:** Menyajikan daftar kursus yang direkomendasikan. Data diambil secara asinkron dan ditampilkan setelah proses loading.
+-   **Persistensi Data Lokal:** Data kursus yang pertama kali diambil akan disimpan di penyimpanan lokal menggunakan **Hive**, sehingga pada pembukaan aplikasi selanjutnya, data dapat dimuat secara instan tanpa simulasi panggilan jaringan.
+-   **Navigasi Persisten:** Implementasi *Bottom Navigation Bar* yang state-nya tetap terjaga (persistent) saat berpindah antar halaman.
+-   **Animasi Halus:** Penambahan animasi transisi pada pemuatan daftar untuk memperkaya antarmuka pengguna.
 
-> If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
->
-> * [PayPal](https://www.paypal.me/TheAlphamerc/)
+## 💎 Plugin dari FlutterGems yang Digunakan
 
-> You can also nominate me for Github Star developer program
-> https://stars.github.com/nominate
+Proyek ini memanfaatkan beberapa plugin populer dari [FlutterGems](https://fluttergems.dev/) untuk mempercepat pengembangan:
 
-## Visitors Count
+-   **State Management:**
+    -   [`flutter_riverpod`](https://fluttergems.dev/packages/flutter_riverpod/): Solusi state management modern yang reaktif dan *compile-safe*.
+-   **Penyimpanan Lokal (Local Storage):**
+    -   [`hive_flutter`](https://fluttergems.dev/packages/hive_flutter/): Database NoSQL *key-value* yang sangat cepat, ringan, dan ditulis murni dalam Dart.
+-   **Navigasi (Routing):**
+    -   [`go_router`](https://fluttergems.dev/packages/go_router/): Solusi navigasi deklaratif yang direkomendasikan secara resmi oleh tim Flutter.
+-   **Peningkatan UI & Utility:**
+    -   [`flutter_animate`](https://fluttergems.dev/packages/flutter_animate/): Untuk menambahkan animasi kompleks dengan cara yang sederhana.
+    -   [`cached_network_image`](https://fluttergems.dev/packages/cached_network_image/): Untuk memuat dan menyimpan cache gambar dari internet secara efisien.
+    -   [`google_fonts`](https://fluttergems.dev/packages/google_fonts/): Untuk menggunakan font dari Google Fonts.
 
-<img align="left" src = "https://profile-counter.glitch.me/flutter_smart_course/count.svg" alt ="Loading">
+## 📚 Referensi & Inspirasi
 
+Proyek refactor ini terinspirasi dari basis kode orisinal yang dikembangkan oleh **TheAlphamerc**. Aplikasi aslinya berfungsi sebagai studi kasus yang sangat baik untuk menunjukkan evolusi pengembangan aplikasi Flutter.
 
+-   **Repository Asli:** [TheAlphamerc/flutter_smart_course](https://github.com/TheAlphamerc/flutter_smart_course.git)
 
+## 🚀 Petunjuk Instalasi & Menjalankan Proyek
 
+Pastikan Anda telah menginstal [Flutter SDK](https://flutter.dev/docs/get-started/install) versi terbaru.
+
+1.  **Clone Repository Ini**
+    ```bash
+    git clone [URL_REPOSITORY_ANDA]
+    cd flutter_smart_course
+    ```
+
+2.  **Ambil Dependensi**
+    ```bash
+    flutter pub get
+    ```
+
+3.  **Generate File untuk Hive**
+    ```bash
+    dart run build_runner build --delete-conflicting-outputs
+    ```
+    *Catatan: Jika Anda mengubah `course_model.dart`, jalankan kembali perintah ini.*
+
+4.  **Jalankan Aplikasi**
+    ```bash
+    flutter run
+    ```
+
+</details>
+
+---
+
+<details>
+<summary>🇬🇧 English Version (Click to Open)</summary>
+
+## 📖 Project Description
+
+The original Smart Course application was an example app built using an early version of the Flutter ecosystem. Over time, many of the patterns and libraries used became outdated.
+
+The primary goals of this refactoring project were:
+1.  **Infrastructure Modernization:** To upgrade the entire codebase to the latest version of Dart with full **Null Safety** support.
+2.  **Solid Architecture Implementation:** To overhaul the project structure from a monolithic approach to a **Feature-First Architecture**, where each feature is isolated as an independent module.
+3.  **Modern State Management:** To replace implicit state management with **Riverpod** for a more structured, testable, and predictable state.
+4.  **Enhanced User Experience (UX):** To leverage modern libraries for more efficient navigation, animations, and data loading.
+
+## ✨ Key Features
+
+-   **Home Page:** Displays a list of featured and popular courses in a dynamic card format.
+-   **Recommended Page:** Presents a list of recommended courses. Data is fetched asynchronously and displayed after a loading state.
+-   **Local Data Persistence:** Course data fetched for the first time is stored in local storage using **Hive**, allowing for instant data loading on subsequent app launches without simulating a network call.
+-   **Persistent Navigation:** A *Bottom Navigation Bar* with a persistent state when switching between pages.
+-   **Smooth Animations:** Added transition animations on list loading to enrich the user interface.
+
+## 💎 Plugins from FlutterGems Used
+
+This project utilizes several popular and highly-rated plugins from [FlutterGems](https://fluttergems.dev/) to accelerate development:
+
+-   **State Management:**
+    -   [`flutter_riverpod`](https://fluttergems.dev/packages/flutter_riverpod/): A modern, reactive, and compile-safe state management solution.
+-   **Local Storage:**
+    -   [`hive_flutter`](https://fluttergems.dev/packages/hive_flutter/): A very fast, lightweight NoSQL key-value database written purely in Dart.
+-   **Navigation (Routing):**
+    -   [`go_router`](https://fluttergems.dev/packages/go_router/): A declarative routing solution officially recommended by the Flutter team.
+-   **UI Enhancement & Utilities:**
+    -   [`flutter_animate`](https://fluttergems.dev/packages/flutter_animate/): For adding complex animations to widgets in a simple, declarative way.
+    -   [`cached_network_image`](https://fluttergems.dev/packages/cached_network_image/): For efficiently loading and caching images from the internet.
+    -   [`google_fonts`](https://fluttergems.dev/packages/google_fonts/): For using fonts from the Google Fonts library.
+
+## 📚 Reference & Inspiration
+
+This refactor project was inspired by the original codebase developed by **TheAlphamerc**. The original application served as an excellent case study to demonstrate the evolution of Flutter app development.
+
+-   **Original Repository:** [TheAlphamerc/flutter_smart_course](https://github.com/TheAlphamerc/flutter_smart_course.git)
+
+## 🚀 Setup & Running the Project
+
+Ensure you have the latest version of the [Flutter SDK](https://flutter.dev/docs/get-started/install) installed.
+
+1.  **Clone This Repository**
+    ```bash
+    git clone [YOUR_REPOSITORY_URL]
+    cd flutter_smart_course
+    ```
+
+2.  **Get Dependencies**
+    ```bash
+    flutter pub get
+    ```
+
+3.  **Generate Files for Hive**
+    ```bash
+    dart run build_runner build --delete-conflicting-outputs
+    ```
+    *Note: If you make changes to `course_model.dart`, you must run this command again.*
+
+4.  **Run the App**
+    ```bash
+    flutter run
+    ```
+</details>
+
+---
+
+Made with ❤️ using Flutter.
